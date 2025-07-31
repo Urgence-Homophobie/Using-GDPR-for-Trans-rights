@@ -1,0 +1,612 @@
+        th:nth-child(1), td:nth-child(1) { width: 40px; }  /* # */
+        th:nth-child(2), td:nth-child(2) { width: 280px; } /* Expense description */
+        th:nth-child(3), td:nth-child(3) { width: 120px; } /* Date Expected */
+        th:nth-child(4), td:nth-child(4) { width: 220px; } /* Funding source */
+        th:nth-child(5), td:nth-child(5) { width: 60px; }  /* Unit */
+        th:nth-child(6), td:nth-child(6) { width: 100px; } /* Cost per unit */
+        th:nth-child(7), td:nth-child(7) { width: 100px; } /* Budget */
+        th:nth-child(8), td:nth-child(8) { width: 150px; } /* Comments */<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget DFF - Digital Identity Rights for Trans Refugees</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            font-family: Arial, sans-serif;
+        }
+        h3 {
+            font-family: Arial, sans-serif;
+        }
+        .project-info {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .project-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .summary-box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .summary-box h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            table-layout: fixed;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .section-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            margin-top: 30px;
+            margin-bottom: 0;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        .subtotal-row {
+            background-color: #ecf0f1 !important;
+            font-weight: bold;
+        }
+        .total-row {
+            background-color: #3498db !important;
+            color: white;
+            font-weight: bold;
+        }
+        .final-total {
+            background-color: #2c3e50 !important;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .amount {
+            text-align: right;
+            font-family: Arial, sans-serif;
+        }
+        .center {
+            text-align: center;
+        }
+        select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+        /* Column widths for consistent alignment */
+        th:nth-child(1), td:nth-child(1) { width: 40px; }  /* # */
+        th:nth-child(2), td:nth-child(2) { width: 250px; } /* Expense description */
+        th:nth-child(3), td:nth-child(3) { width: 140px; } /* Date Expected */
+        th:nth-child(4), td:nth-child(4) { width: 240px; } /* Funding source */
+        th:nth-child(5), td:nth-child(5) { width: 50px; }  /* Unit */
+        th:nth-child(6), td:nth-child(6) { width: 90px; } /* Cost per unit */
+        th:nth-child(7), td:nth-child(7) { width: 90px; } /* Budget */
+        th:nth-child(8), td:nth-child(8) { width: 120px; } /* Comments */
+        /* Adjust subtotal and total rows */
+        .subtotal-row td:first-child,
+        .total-row td:first-child {
+            width: auto;
+        }
+        @media print {
+            body {
+                margin: 0;
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Budget Template - DFF Application</h1>
+        
+        <div class="project-info">
+            <p><strong>Project name:</strong> Digital Identity Rights for Trans Refugees: Strategic Litigation Using GDPR to Unlock Administrative Barriers</p>
+            <p><strong>Applicant/grantee name:</strong> Sasha Safontceva</p>
+            <p><strong>Application/grant reference:</strong> 130/2025</p>
+            <p><strong>Date:</strong> 24/7/2025</p>
+        </div>
+
+        <div class="summary-box">
+            <h2>Budget Summary</h2>
+            <table style="margin-bottom: 0;">
+                <tr>
+                    <td style="border: none; color: white;">Total costs DFF (excl. 7% overhead)</td>
+                    <td class="amount" style="border: none; color: white;"><strong>€20 548,31</strong></td>
+                </tr>
+                <tr style="background-color: rgba(255,255,255,0.15);">
+                    <td style="border: none; color: white;">7% overhead to be covered by DFF</td>
+                    <td class="amount" style="border: none; color: white;"><strong>€1 438,38</strong></td>
+                </tr>
+                <tr>
+                    <td style="border: none; color: white;">Total costs DFF (incl. 7% overhead)</td>
+                    <td class="amount" style="border: none; color: white;"><strong>€21 986,69</strong></td>
+                </tr>
+                <tr style="background-color: rgba(255,255,255,0.15);">
+                    <td style="border: none; color: white;">Total costs funded by others</td>
+                    <td class="amount" style="border: none; color: white;"><strong>€42 413,64</strong></td>
+                </tr>
+                <tr>
+                    <td style="border: none; color: white;">Total project amount (incl. 7% overhead)</td>
+                    <td class="amount" style="border: none; color: white;"><strong>€64 400,33</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Research costs - in-house -->
+        <h3 class="section-header">Budget: Research costs - in-house</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expense description</th>
+                    <th>Date Expected</th>
+                    <th>Funding source</th>
+                    <th class="center">Unit</th>
+                    <th class="amount">Cost per unit</th>
+                    <th class="amount">Budget</th>
+                    <th>Comments (optional)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Research Coordinator</td>
+                    <td>Q4 2025 - Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff" selected>DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">0,4</td>
+                    <td class="amount">€27 604,80</td>
+                    <td class="amount">€11 041,92</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Strategic Coordinator</td>
+                    <td>Q4 2025 - Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff" selected>DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">0,3</td>
+                    <td class="amount">€27 604,80</td>
+                    <td class="amount">€8 281,44</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Digital Lab Coordinator</td>
+                    <td>Q4 2025 - Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited" selected>Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">0,3</td>
+                    <td class="amount">€27 604,80</td>
+                    <td class="amount">€8 281,44</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Provisions for salary costs</td>
+                    <td>Q3 2025 - Q4 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">3</td>
+                    <td class="amount">€2 300,40</td>
+                    <td class="amount">€6 901,20</td>
+                    <td></td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td colspan="6">Subtotal</td>
+                    <td class="amount">€34 506,00</td>
+                    <td></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="6">Total to be funded by DFF</td>
+                    <td class="amount">€19 323,36</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Research costs - external researchers -->
+        <h3 class="section-header">Budget: Research costs - external researchers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expense description</th>
+                    <th>Date Expected</th>
+                    <th>Funding source</th>
+                    <th class="center">Unit</th>
+                    <th class="amount">Cost per unit</th>
+                    <th class="amount">Budget</th>
+                    <th>Comments (optional)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5</td>
+                    <td>External Counsel</td>
+                    <td>Q3 2025 - Q4 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited" selected>Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">15</td>
+                    <td class="amount">€833,33</td>
+                    <td class="amount">€12 499,95</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Immigration Law Specialist</td>
+                    <td>Q3 2025 - Q2 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">5</td>
+                    <td class="amount">€400,00</td>
+                    <td class="amount">€2 000,00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Civil Law Specialist</td>
+                    <td>Q3 2025 - Q2 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">5</td>
+                    <td class="amount">€400,00</td>
+                    <td class="amount">€2 000,00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>GDPR/Digital Law Specialist</td>
+                    <td>Q3 2025 - Q2 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">5</td>
+                    <td class="amount">€400,00</td>
+                    <td class="amount">€2 000,00</td>
+                    <td></td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td colspan="6">Subtotal</td>
+                    <td class="amount">€18 499,95</td>
+                    <td></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="6">Total to be funded by DFF</td>
+                    <td class="amount">€0,00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Research expenses -->
+        <h3 class="section-header">Budget: Research expenses</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expense description</th>
+                    <th>Date Expected</th>
+                    <th>Funding source</th>
+                    <th class="center">Unit</th>
+                    <th class="amount">Cost per unit</th>
+                    <th class="amount">Budget</th>
+                    <th>Comments (optional)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9</td>
+                    <td>Computer equipment depreciation (pro-rata funding)</td>
+                    <td>Q3 2025 - Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff" selected>DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">15</td>
+                    <td class="amount">€48,33</td>
+                    <td class="amount">€724,95</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Computer equipment depreciation (already purchased)</td>
+                    <td>Q3 2025 - Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">15</td>
+                    <td class="amount">€101,67</td>
+                    <td class="amount">€1 525,05</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Secure Documentation Software</td>
+                    <td>Q3 2025 - Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">1</td>
+                    <td class="amount">€1 500,00</td>
+                    <td class="amount">€1 500,00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Technical Audit of Administrative Data Flows</td>
+                    <td>Q4 2025</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited" selected>Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">1</td>
+                    <td class="amount">€3 500,00</td>
+                    <td class="amount">€3 500,00</td>
+                    <td></td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td colspan="6">Subtotal</td>
+                    <td class="amount">€7 250,00</td>
+                    <td></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="6">Total to be funded by DFF</td>
+                    <td class="amount">€724,95</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Translation costs -->
+        <h3 class="section-header">Budget: Translation costs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expense description</th>
+                    <th>Date Expected</th>
+                    <th>Funding source</th>
+                    <th class="center">Unit</th>
+                    <th class="amount">Cost per unit</th>
+                    <th class="amount">Budget</th>
+                    <th>Comments (optional)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>13</td>
+                    <td>Research documents translation</td>
+                    <td>Q4 2025</td>
+                    <td>
+                        <select>
+                            <option value="dff" selected>DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">20</td>
+                    <td class="amount">€25,00</td>
+                    <td class="amount">€500,00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>VAT on translation services</td>
+                    <td>Q4 2025</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">1</td>
+                    <td class="amount">€100,00</td>
+                    <td class="amount">€100,00</td>
+                    <td></td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td colspan="6">Subtotal</td>
+                    <td class="amount">€600,00</td>
+                    <td></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="6">Total to be funded by DFF</td>
+                    <td class="amount">€500,00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Travel costs -->
+        <h3 class="section-header">Budget: Travel costs</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expense description</th>
+                    <th>Date Expected</th>
+                    <th>Funding source</th>
+                    <th class="center">Unit</th>
+                    <th class="amount">Cost per unit</th>
+                    <th class="amount">Budget</th>
+                    <th>Comments (optional)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>17</td>
+                    <td>Evidence collection travel</td>
+                    <td>Q3-Q4 2025</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited" selected>Solicited funding from other sources</option>
+                            <option value="secured">Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">5</td>
+                    <td class="amount">€336,96</td>
+                    <td class="amount">€1 684,80</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Court appearances</td>
+                    <td>Q1-Q3 2026</td>
+                    <td>
+                        <select>
+                            <option value="dff">DFF</option>
+                            <option value="solicited">Solicited funding from other sources</option>
+                            <option value="secured" selected>Secured funding from other sources</option>
+                        </select>
+                    </td>
+                    <td class="center">2</td>
+                    <td class="amount">€210,60</td>
+                    <td class="amount">€421,20</td>
+                    <td></td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td colspan="6">Subtotal</td>
+                    <td class="amount">€2 106,00</td>
+                    <td></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="6">Total to be funded by DFF</td>
+                    <td class="amount">€0,00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Final totals -->
+        <table>
+            <tbody>
+                <tr class="final-total">
+                    <td>Total costs</td>
+                    <td class="amount">€62 961,95</td>
+                </tr>
+                <tr class="final-total">
+                    <td>Total costs DFF (excl. 7% overhead)</td>
+                    <td class="amount">€20 548,31</td>
+                </tr>
+                <tr class="final-total">
+                    <td>7% overhead to be covered by DFF</td>
+                    <td class="amount">€1 438,38</td>
+                </tr>
+                <tr class="final-total">
+                    <td>Total costs DFF (incl. 7% overhead)</td>
+                    <td class="amount">€21 986,69</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
